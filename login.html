@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beautiful Login</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #333;
+      }
+      .login-container {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+        animation: fadeIn 1s ease forwards;
+      }
+      .login-container h2 {
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 700;
+      }
+      .input-field {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        font-size: 16px;
+      }
+      .input-field:focus {
+        border-color: #764ba2;
+        box-shadow: 0 0 5px rgba(118, 75, 162, 0.5);
+      }
+      select.input-field {
+        appearance: none;
+        background: #f9f9f9
+          url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='7' viewBox='0 0 10 7' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 7 5-7H0z' fill='%23764ba2'/%3E%3C/svg%3E")
+          no-repeat right 15px center;
+        background-size: 10px 7px;
+      }
+      #loginBtn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #loginBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 400px) {
+        .login-container {
+          width: 90%;
+          padding: 30px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input id="username" class="input-field" type="text" placeholder="Username" />
+        <input id="password" class="input-field" type="password" placeholder="Password" />
+        <select id="country" class="input-field">
+          <option value="USA">USA</option>
+          <option value="Canada">Canada</option>
+        </select>
+        <button id="loginBtn" type="submit">Login</button>
+      </form>
+    </div>
+    <script>
+      const form = document.getElementById("loginForm");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const country = document.getElementById("country").value;
+        alert(`Username: ${username}\nPassword: ${password}\nCountry: ${country}`);
+      });
+    </script>
+  </body>
+</html>
